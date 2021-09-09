@@ -8,9 +8,7 @@
  * @format
  */
 {/* <script src="http://localhost:8097"></script> */}
-import React from 'react';
-
-
+import React,{useEffect} from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -21,6 +19,7 @@ import {
   View,
   Button
 } from 'react-native';
+import SplashScreen from 'react-native-splash-screen';
 
 import {
   Colors,
@@ -62,12 +61,15 @@ import OrderDetails from './src/screen/order-details';
 const Stack = createStackNavigator();
 
 function App() {
+  useEffect(() => {
+    SplashScreen.hide();
+  }, []);
   return (
-
+    // 1E2429
     <NavigationContainer>
       <StatusBar
         animated={true}
-        backgroundColor="#000000"
+        backgroundColor="#1E2429"
        />
       <Stack.Navigator>
       <Stack.Screen name="Login" component={Login} 

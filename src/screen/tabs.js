@@ -21,7 +21,8 @@ const Tabs = () => {
       tabBarActiveBackgroundColor: '#1E2429',
       tabBarStyle: { paddingBottom:0,
         paddingTop:0,
-        height: calcH(0.14), 
+        height: calcH(0.14),
+        borderTopWidth:0 
     },
     }}
   >

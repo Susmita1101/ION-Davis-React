@@ -86,6 +86,9 @@ export default Home = ({route, navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  borderTopWidth: 3,
+  borderColor: '#1E2429'
+
   },
   image: {
     flex: 1,
@@ -98,12 +101,10 @@ const styles = StyleSheet.create({
         fontWeight:'500',
         color:colors.white,
        // textDecorationLine:'underline',
-        
-         borderBottomWidth: 2,
+         borderBottomWidth: 3,
          borderColor:colors.white,
-        marginTop:calcH(0.049),
+         marginTop:calcH(0.060),
         width:calcW(0.36),
-        
     },
 
     commtext:{
@@ -116,7 +117,7 @@ const styles = StyleSheet.create({
     btnContainer:{
      // justifyContent:'center',
       alignItems:'center',
-      marginBottom:calcH(0.10)
+      marginBottom:calcH(0.14)
      
   },
 });

@@ -41,8 +41,8 @@ export default Login = ({route, navigation }) => {
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', 
        padding:16,marginTop:calcH(0.12)}}>
         
-        <Text style={{color:colors.white, marginBottom:calcH(0.02), fontSize:34, marginTop: calcH(0.06), fontFamily: 'Roboto-Medium', fontWeight:'500'}}>Login </Text>
-  
+        <Text style={{color:colors.white, marginBottom:calcH(0.018), fontSize:34, fontFamily: 'Roboto-Medium', fontWeight:'500'}}>Sign in </Text>
+        {/* marginTop: calcH(0.06) */}
       <View style={{ paddingHorizontal:0, width:'100%'}}>
         <SafeAreaView>
           {/* <View style={styles.inputde}>
@@ -120,7 +120,7 @@ export default Login = ({route, navigation }) => {
                    style={{backgroundColor:colors.primary, borderRadius:8,
                    width:calcW(0.93),height:calcH(0.07), alignItems:'center',justifyContent:'center' }}>
                       <Text style={{color:colors.white, fontSize:18 , fontFamily: 'Roboto-Bold', fontWeight:'700'}}>
-                      LOGIN
+                      SIGN IN
                       </Text>
                   </TouchableOpacity>
                   </View>
@@ -171,7 +171,7 @@ export default Login = ({route, navigation }) => {
         fontSize: 18
     },
     facebook: {
-        marginTop:calcH(0.08)
+        marginTop:calcH(0.14)
       // position:'absolute',
       // width:'100%',
       // bottom: 30

@@ -32,30 +32,9 @@ export default Signup = ({route, navigation }) => {
     return (
       <ScrollView style={styles.container}>
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor:colors.background, padding:16, marginTop:calcH(0.12)}}>
-    <Text style={{color:colors.white, marginBottom:20, fontSize:34, fontFamily: 'Roboto-Medium', fontWeight:'500', marginBottom:calcH(0.02)}}>Sign up</Text>
+    <Text style={{color:colors.white,  fontSize:34, fontFamily: 'Roboto-Medium', fontWeight:'500', marginBottom:calcH(0.018)}}>Sign up</Text>
   <View style={{ paddingHorizontal:0, width:'100%'}}>
   <SafeAreaView>
-  {/* <View style={styles.inputde}>
-        <Text style={styles.ftcolor}>Name</Text>
-    <TextInput 
-    style={styles.incolor}
-    placeholder=""
-  />
-    </View>
-    <View style={styles.inputde}>
-        <Text style={styles.ftcolor}>Email</Text>
-    <TextInput 
-    style={styles.incolor}
-    placeholder=""
-  />
-    </View>
-    <View style={styles.inputde}>
-        <Text style={styles.ftcolor}>Password</Text>
-    <TextInput style={styles.incolor}
-    placeholder=""
-  />
-    </View> */}
-
           <View style={styles.row}>
             <View style={styles.inputContainer}>
                 <View style={styles.left}>
@@ -132,24 +111,21 @@ export default Signup = ({route, navigation }) => {
                       <TouchableOpacity
                     onPress={() =>
                       navigation.navigate('Home')
-                    } style={{width:'100%'}}>
-                        <View style={{backgroundColor:colors.primary, padding:16, borderRadius:8, width:calcW(0.93),height:calcH(0.085), 
-                        alignItems:'center',width:calcW(0.93),height:calcH(0.08)}}>
+                    } style={{backgroundColor:colors.primary, borderRadius:8,
+                      width:calcW(0.93),height:calcH(0.07), alignItems:'center',justifyContent:'center' }}>                      
                             <Text style={{color:Colors.white, fontSize:18, fontFamily: 'Roboto-Bold', fontWeight:'700'}}>
                                 SIGN UP
-                            </Text>
-                        </View>
-                          
+                            </Text>                          
                     </TouchableOpacity>
                 </View>
-          <View style={{}}>
+          <View style={styles.facebook}>
                     <Text style={{color:colors.white, marginTop:50, fontSize:18, textAlign:'center', fontFamily: 'Roboto-Medium', fontWeight:'500' }}>Already have an account?
               <Text style={{color:colors.primary,}}  onPress={() =>
             navigation.navigate('Login')
           }> Sign In</Text></Text>
                     <Text style={{color:colors.white, fontSize:18, textAlign:'center',fontFamily: 'Roboto-Medium', fontWeight:'500'}} >Or sign up with facebook</Text>
                 </View>
-                <View style={{alignItems:'center', marginTop:10}}>
+                <View style={{alignItems:'center', marginTop:10, marginBottom:calcH(0.02)}}>
                 <Image source={require('../assets/images/logos_facebook.png')} style={styles.fbImage} /> 
                 </View>
   </View>
@@ -225,4 +201,11 @@ btnContainer:{
   justifyContent:'center',
   alignItems:'center'
 },
+facebook: {
+  marginTop:calcH(0.01)
+// position:'absolute',
+// width:'100%',
+// bottom: 30
+},
+
 });

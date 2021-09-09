@@ -18,8 +18,8 @@ export default Orders = ({route, navigation }) =>  {
   
     <View style={{ flex:1,height: "100%",  justifyContent: 'flex-start' , backgroundColor: colors.background }}>
       <StatusBar hidden={false}/>
-      <View style={{height:calcH(0.18), width:'100%' , borderTopLeftRadius: 35 ,borderTopRightRadius :35}}>
-        <ImageBackground source={require('../assets/images/order-details.png')} resizeMode="cover" style={styles.image} imageStyle={{borderTopLeftRadius: 35 ,borderTopRightRadius :35 }}>
+      <View style={{height:calcH(0.18), width:'100%' , borderTopLeftRadius: 30 ,borderTopRightRadius :30}}>
+        <ImageBackground source={require('../assets/images/order-details.png')} resizeMode="cover" style={styles.image} imageStyle={{borderTopLeftRadius: 30 ,borderTopRightRadius :30 }}>
         <Text style={styles.text}>Orders</Text>
             </ImageBackground>
       </View>
@@ -51,12 +51,12 @@ export default Orders = ({route, navigation }) =>  {
                 <View style={styles.cardtp}>
                 <TouchableOpacity onPress={() =>
                     navigation.navigate('OrderDetails') }
-                      style={{width: 109 }}>
-                          <View style={{ padding:12, borderRadius:65, width:'100%', alignItems:'center',borderWidth: 1, borderColor:colors.white , marginVertical: 8}}>
+                    style={{ padding:11, borderRadius:50, width:calcW(0.30), alignItems:'center',borderWidth: 1, borderColor:colors.white , marginVertical: 8}}>
+                          {/* <View style={{ padding:12, borderRadius:65, width:'100%', alignItems:'center',borderWidth: 1, borderColor:colors.white , marginVertical: 8}}> */}
                               <Text style={styles.details}>
                               DETAILS
                               </Text>
-                          </View>
+                          {/* </View> */}
                     </TouchableOpacity>
                     <Text style={styles.markorder}>PROCESSSED</Text>                           
                 </View>                       
@@ -80,12 +80,12 @@ export default Orders = ({route, navigation }) =>  {
                 <TouchableOpacity onPress={() =>
                     navigation.navigate('OrderDetails')
                   }
-                      style={{width: 109 }}>
-                          <View style={{ padding:12, borderRadius:50, width:'100%', alignItems:'center',borderWidth: 1, borderColor:colors.white , marginVertical: 8}}>
+                  style={{ padding:11, borderRadius:50, width:calcW(0.30), alignItems:'center',borderWidth: 1, borderColor:colors.white , marginVertical: 8}}>
+                          {/* <View style={{ padding:12, borderRadius:50, width:'100%', alignItems:'center',borderWidth: 1, borderColor:colors.white , marginVertical: 8}}> */}
                               <Text style={styles.details}>
                               DETAILS
                               </Text>
-                          </View>
+                          {/* </View> */}
                     </TouchableOpacity>
                     <Text style={styles.markordernew}>IN ROUTE</Text>                           
                 </View>                                      
@@ -109,12 +109,12 @@ export default Orders = ({route, navigation }) =>  {
                 <TouchableOpacity onPress={() =>
                     navigation.navigate('OrderDetails')
                   }
-                      style={{width: 104 }}>
-                          <View style={{ padding:12, borderRadius:60, width:'100%', alignItems:'center',borderWidth: 1, borderColor:colors.white , marginVertical: 8}}>
+                  style={{ padding:11, borderRadius:50, width:calcW(0.30), alignItems:'center',borderWidth: 1, borderColor:colors.white , marginVertical: 8}}>
+                          {/* <View style={{ padding:12, borderRadius:60, width:'100%', alignItems:'center',borderWidth: 1, borderColor:colors.white , marginVertical: 8}}> */}
                               <Text style={styles.details}>
                               DETAILS
                               </Text>
-                          </View>
+                          {/* </View> */}
                     </TouchableOpacity>
                     <Text style={styles.markorderdeliver}>DELIVERED</Text>                           
                 </View>                       
@@ -147,7 +147,10 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     fontFamily: 'Roboto-Bold',
     textAlign: "center",
-    backgroundColor: "#1E2429c0"
+    backgroundColor: "#1E2429c0",
+   // backgroundColor: "red",
+    borderTopLeftRadius: 30 ,
+    borderTopRightRadius :30
   },
   inputde:{
     borderRadius:5,
@@ -180,8 +183,8 @@ cardtpnext: {
     resizeMode: "stretch",
     width:'100%',
     height: 120,
-    borderTopLeftRadius: 35,
-    borderTopRightRadius :35 
+    borderTopLeftRadius: 30,
+    borderTopRightRadius :30 
   },
   tabContainerStyle: {
     backgroundColor: 'transparent',
@@ -204,18 +207,18 @@ cardtpnext: {
  
  activeTabStyle: { 
     backgroundColor: 'transparent',
-    borderRadius: 0,   
-    margin: 5
+   borderRadius: 0,   
+   margin: 5,
+   
+   
  },
  activeTabTextStyle: {
-    color: colors.white ,
-    fontSize: 16,
-    borderBottomColor: colors.primary,    
-    borderRightWidth:0,
-    borderLeftWidth:0,
+   color: colors.white ,
+   fontSize: 16,
+    borderBottomColor: colors.primary,
     borderTopWidth:0,
-    width:calcW(0.20),
-    borderBottomWidth: 2,
+    width:calcW(0.22),
+    borderBottomWidth: 3,    
     
  },
  textStyle: {
