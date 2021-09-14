@@ -82,11 +82,7 @@ export default Fontpage = ({route, navigation }) =>  {
                 navigation.navigate('Home')
               } style={{width:'100%'}}>                
                   <Image style={{width:"100%",  bottom:0,}} source={require('../assets/images/adinstall.png')}/>                  
-        </TouchableOpacity>
-
-
-        
-    </View>
-  
+        </TouchableOpacity>       
+    </View>  
   );
 }

@@ -5,23 +5,24 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Tabs from './tabs'
 import colors from '../assets/colors/color';
+import {calcH,calcW} from '../utils/common';
 
 export default Account = ({route, navigation }) => {
   const [actionTriggered, setActionTriggered] = useState('');
   const [modalVisible, setModalVisible] = useState(false);
  
   return (
-    <View style={{flex:1,height: "100%",  justifyContent: 'flex-start' , backgroundColor: colors.background}}>
-        <View style={{height: 120, width:'100%'}}>
-          <ImageBackground source={require('../assets/images/settingheader.png')} resizeMode="cover" style={styles.image}>
+    <View style={{height: "100%",  justifyContent: 'flex-start' , backgroundColor: colors.background , alignItems: 'center'}}>
+        <View style={{height:calcH(0.25), width:'100%', borderTopLeftRadius: 30 ,borderTopRightRadius :30}}>
+          <ImageBackground source={require('../assets/images/settingheader.png')} resizeMode="cover" style={styles.image} imageStyle={{borderTopLeftRadius: 30 ,borderTopRightRadius :30 }} >
                 <Text style={styles.text}>Account</Text>
           </ImageBackground>
           <TouchableOpacity style={{position:'absolute', left:10, top:20, zIndex:99}}
               onPress={() =>
                 navigation.navigate('Setting')               
               }>   
-      <Image  source={require('../assets/images/icon.png')} />
-      </TouchableOpacity>
+            <Image  source={require('../assets/images/icon.png')} />
+          </TouchableOpacity>
       </View>
 
       <View style={{marginTop:20,paddingHorizontal:10}}>

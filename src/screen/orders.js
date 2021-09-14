@@ -16,9 +16,9 @@ export default Orders = ({route, navigation }) =>  {
 
   return (
   
-    <View style={{ flex:1,height: "100%",  justifyContent: 'flex-start' , backgroundColor: colors.background }}>
+    <View style={{ height: "100%",  justifyContent: 'flex-start' , backgroundColor: colors.background }}>
       <StatusBar hidden={false}/>
-      <View style={{height:calcH(0.18), width:'100%' , borderTopLeftRadius: 30 ,borderTopRightRadius :30}}>
+      <View style={{height:calcH(0.25), width:'100%' , borderTopLeftRadius: 30 ,borderTopRightRadius :30}}>
         <ImageBackground source={require('../assets/images/order-details.png')} resizeMode="cover" style={styles.image} imageStyle={{borderTopLeftRadius: 30 ,borderTopRightRadius :30 }}>
         <Text style={styles.text}>Orders</Text>
             </ImageBackground>
@@ -180,11 +180,13 @@ cardtpnext: {
     fontWeight:'400'
   },
   image: {
-    resizeMode: "stretch",
-    width:'100%',
-    height: 120,
-    borderTopLeftRadius: 30,
-    borderTopRightRadius :30 
+    flex: 1,
+    justifyContent: "flex-start"
+    // resizeMode: "stretch",
+    // width:'100%',
+    // height: calcH(0.18),
+    // borderTopLeftRadius: 30,
+    // borderTopRightRadius :30 
   },
   tabContainerStyle: {
     backgroundColor: 'transparent',

@@ -1,9 +1,10 @@
 import * as React from 'react';
-import { View, Text,  SafeAreaView ,FlatList , StyleSheet, Image, TouchableOpacity, ImageBackground } from 'react-native';
+import { View, Text,  SafeAreaView ,FlatList , StyleSheet, Image, ScrollView, TouchableOpacity, ImageBackground, StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import colors from '../assets/colors/color';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
+import {calcH,calcW} from '../utils/common';
 
 const DATA = [
   {
@@ -38,16 +39,16 @@ const DATA = [
   }
 ];
 
-const image = { uri: "../assets/images/settingheader.png" };
-
 export default Setting = ({route, navigation }) =>  {
   return (
-    <View style={{height: "100%", alignItems: 'flex-start', justifyContent: 'flex-start' , backgroundColor: colors.background }}>
-      <View style={{height: 120, width:'100%'}}>
-        <ImageBackground source={require('../assets/images/settingheader.png')} resizeMode="cover" style={styles.image}>
+    <View style={{height: "100%", alignItems: 'center', justifyContent: 'flex-start' , backgroundColor: colors.background }}>
+      <StatusBar hidden={false}/>
+      <View style={{height:calcH(0.25), width:'100%', borderTopLeftRadius: 30 ,borderTopRightRadius :30}}>
+        <ImageBackground source={require('../assets/images/settingheaderNew.jpg')} resizeMode="cover" style={styles.image} imageStyle={{borderTopLeftRadius: 30 ,borderTopRightRadius :30 }}>
               <Text style={styles.text}>Settings</Text>
         </ImageBackground>
       </View>
+      <ScrollView>
       <View style={{width:'100%'}}>
             <FlatList 
               data={DATA}
@@ -56,7 +57,7 @@ export default Setting = ({route, navigation }) =>  {
                   onPress={() =>
                     navigation.navigate(item.url)
                   } >
-                    <View style={{borderStyle:'solid', padding:2, borderBottomColor:'#333', borderBottomWidth:1, width:'100%', justifyContent:'space-between', flex:1, alignItems:'center', flexDirection:'row' }}>
+                    <View style={{borderStyle:'solid', padding:4, borderBottomColor:'#333', borderBottomWidth:1, width:'100%', justifyContent:'space-between', flex:1, alignItems:'center', flexDirection:'row' }}>
                       <Text style={styles.item}>{item.title}</Text>
                       <Image style={{marginRight:8}} source={require('../assets/images/chevron-right.png')}/>
                       </View>
@@ -71,13 +72,14 @@ export default Setting = ({route, navigation }) =>  {
                   onPress={() =>
                     navigation.navigate('Home')
                   }  style={{flexDirection:'row', }}>
-                      <View style={{ height:50 , backgroundColor:colors.primary, padding:15, borderRadius:8, alignItems:'center',  }}>
-                          <Text style={{color:Colors.white, fontSize:18}}>
+                      <View style={{ height:calcH(0.07) , width:calcW(0.25), backgroundColor:colors.primary, padding:15, borderRadius:8, alignItems:'center',  }}>
+                          <Text style={styles.logout}>
                               LOG OUT
                           </Text>
                       </View>
             </TouchableOpacity>
-        </View>  
+        </View>
+      </ScrollView>  
   </View>
   );
 }
@@ -92,17 +94,27 @@ const styles = StyleSheet.create({
   },
   item: {
     paddingVertical:12,
-    paddingHorizontal:10,
-    fontSize: 20,
+    paddingHorizontal:28,
+    fontSize: 18,
+    fontFamily:'Roboto-Medium',
+    fontWeight: '500',
     color: colors.white,
     width:'80%'
   },
   text: {
     color: "white",
-    fontSize: 30,
+    fontSize: 25,
     lineHeight: 60,
-    fontWeight: "bold",
+    fontFamily: 'Roboto-Bold',
+    fontWeight: '700',
     textAlign: "center",
     backgroundColor: "#1E2429c0"
+  },
+  logout : {
+    color:Colors.white,
+    fontSize:14,
+    fontFamily: 'Roboto-Bold',
+    fontWeight: '700', 
   }
+ 
 });

@@ -1,8 +1,9 @@
 import React from "react";
-import { View,Text, SafeAreaView, FlatList, StyleSheet, Image , TouchableOpacity, ImageBackground, Dimensions, ScrollView } from 'react-native';
+import { View,Text, SafeAreaView, FlatList,ScrollView, StyleSheet, Image , TouchableOpacity, ImageBackground, Dimensions } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import Tabs from './tabs'
+import Tabs from './tabs';
+import {calcH,calcW} from '../utils/common';
 import colors from '../assets/colors/color';
 
 const screenWidth = Dimensions.get('window').width;
@@ -11,115 +12,114 @@ const screenHeight = Dimensions.get('window').height;
 export default OrderDetails = ({route, navigation }) => {
   return (
     <View style={{height: "100%", alignItems: 'center', justifyContent: 'flex-start' , backgroundColor: colors.background}}>             
-      <View style={{height: '30%', width:'100%',}}>
+      <View style={{height:calcH(0.25), width:'100%', borderTopLeftRadius: 30 ,borderTopRightRadius :30}}>
       <TouchableOpacity style={{position:'absolute', left:10, top:20, zIndex:99}}
               onPress={() =>
                 navigation.navigate('Orders')               
               }>   
       <Image  source={require('../assets/images/icon.png')} />
       </TouchableOpacity>
-        <ImageBackground source={require('../assets/images/order-details.png')} resizeMode="cover" style={styles.image}>
+        <ImageBackground source={require('../assets/images/order-details.png')} resizeMode="cover" style={styles.image} imageStyle={{borderTopLeftRadius: 30 ,borderTopRightRadius :30 }}>
       <Text style={styles.text}>Order Details</Text>
     </ImageBackground>
       </View>
       <ScrollView>
-      <View style={{top:20, paddingHorizontal:15,  width:'100%'}}>
-      
-      <View style={styles.srollsection}> 
-              <View style={styles.inputde}>
-                  <View style={styles.cardtp}>
-                      <Text style={styles.ftcolor}>Order No : 1</Text> 
-                      <Text style={styles.ftcolor}>06-17-2021</Text>  
-                  </View>
-                  <View style={styles.cardtp}>
-                    <Text style={styles.ftcolor}>Quantity : 3</Text> 
-                    <Text style={styles.ftcolor}>Total Amount: $ 101.79</Text>                           
-                </View>  
-                <View style={styles.cardtp}>
-                <TouchableOpacity 
-                      style={{width: 109 }}>
-                          {/* <View style={{ padding:12, borderRadius:50, width:'100%', alignItems:'center',borderWidth: 1, borderColor:colors.white , marginVertical: 8}}>
-                              <Text style={{color:colors.white, fontSize:14}}>
-                              DETAILS
-                              </Text>
-                          </View> */}
-                    </TouchableOpacity>
-                    <Text style={styles.markorderdeliver}>DELIVERED</Text>                           
-                </View>                       
-              </View> 
-
-                  
-            <View style={styles.inputdetow}>
-                      <View style={styles.cardleft}>
-                        <Image style={styles.cardimg} source={require('../assets/images/veranda.png')} />
-                      </View>
-                      <View style={styles.cardright}>
-                        <View style={styles.cardtp}>
-                            <Text style={styles.title}>
-                            Veranda
-                            </Text>
-                            <Text style={styles.price}>
-                            $ 52.36
-                            </Text>
-                        </View>
-                       
-                        <View style={styles.cardbt}>
-                          <View style={styles.count}>
-                            <View style={styles.countmin}><Text style={styles.countcommon}>-</Text></View>
-                            <View  style={styles.countnu}><Text style={styles.countNo}>2</Text></View>
-                            <View  style={styles.countmin}><Text style={styles.countcommon}>+</Text></View>
+          <View style={{top:calcH(0.02), paddingHorizontal:15,  width:'100%'}}>
+          
+                <View style={styles.srollsection}> 
+                        <View style={styles.inputde}>
+                            <View style={styles.cardtp}>
+                                <Text style={styles.ftcolor}>Order No : 0001</Text> 
+                                <Text style={styles.ftcolor}>06-17-2021</Text>  
+                            </View>
+                            <View style={styles.cardtp}>
+                              <Text style={styles.ftcolor}>Quantity : 30000</Text> 
+                              <Text style={styles.ftcolor}>Total : $ 101.79</Text>                           
+                          </View>  
+                          <View style={styles.cardtp}>
+                          <TouchableOpacity 
+                                style={{width: 109 }}>
+                                    {/* <View style={{ padding:12, borderRadius:50, width:'100%', alignItems:'center',borderWidth: 1, borderColor:colors.white , marginVertical: 8}}>
+                                        <Text style={{color:colors.white, fontSize:14}}>
+                                        DETAILS
+                                        </Text>
+                                    </View> */}
+                              </TouchableOpacity>
+                              <Text style={styles.markorderdeliver}>DELIVERED</Text>                           
                           </View>                       
-                        </View>
-                      </View>
-                </View>  
-                 
+                        </View> 
 
-                <View style={styles.inputdetow}>
-                      <View style={styles.cardleft}>
-                        <Image style={styles.cardimg} source={require('../assets/images/reversableTrim.png')} />
-                      </View>
-                      <View style={styles.cardright}>
-                        <View style={styles.cardtp}>
-                            <Text style={styles.title}>
-                            Reversible Trim
-                            </Text>
-                            <Text style={styles.price}>
-                            $ 24.43
-                            </Text>
-                        </View>
-                       
-                        <View style={styles.cardbt}>
-                          <View style={styles.count}>
-                            <View style={styles.countmin}><Text style={styles.countcommon}>-</Text></View>
-                            <View  style={styles.countnu}><Text style={styles.countNo}>2</Text></View>
-                            <View  style={styles.countmin}><Text style={styles.countcommon}>+</Text></View>
-                          </View>                       
-                        </View>
-                      </View>
-                </View>  
-
-                <View style={{height:200, width:'100%'}}>
-                  <Text style={styles.titleOrder}>Order information</Text>
-                      <View style={styles.total}>
-                            <Text style={styles.titleleft}>Shipping Addresss :</Text>
-                            <Text style={styles.titleright}>3 Newbridge Court ,Chino Hills, CA 91709, United States</Text>
-                     </View>
-                     <View style={styles.total}>
-                            <Text style={styles.titleleft}>Payment Method :</Text>
                             
-                            <Text style={[styles.titleright, styles.imgposition ]}>
-                            <Image style={styles.cardImg} source={require('../assets/images/card.png')} />          **** **** **** 3947</Text> 
-                     </View>  
-                   
-                     <View style={styles.total}>
-                            <Text style={styles.titleleft}>Total Amount : </Text>
-                            <Text style={styles.titleright}>$ 101 .79</Text>
-                     </View>                             
-                </View>   
-          </View> 
-            
-        </View>    
-        </ScrollView>    
+                      <View style={styles.inputdetow}>
+                                <View style={styles.cardleft}>
+                                  <Image style={styles.cardimg} source={require('../assets/images/veranda.png')} />
+                                </View>
+                                <View style={styles.cardright}>
+                                  <View style={styles.cardtp}>
+                                      <Text style={styles.title}>
+                                      Veranda
+                                      </Text>
+                                      <Text style={styles.price}>
+                                      $ 52.36
+                                      </Text>
+                                  </View>
+                                
+                                  <View style={styles.cardbt}>
+                                    <View style={styles.count}>
+                                      <View style={styles.countmin}><Text style={styles.countcommon}>-</Text></View>
+                                      <View  style={styles.countnu}><Text style={styles.countNo}>2</Text></View>
+                                      <View  style={styles.countmin}><Text style={styles.countcommon}>+</Text></View>
+                                    </View>                       
+                                  </View>
+                                </View>
+                          </View>  
+                          
+
+                          <View style={styles.inputdetow}>
+                                <View style={styles.cardleft}>
+                                  <Image style={styles.cardimg} source={require('../assets/images/reversableTrim.png')} />
+                                </View>
+                                <View style={styles.cardright}>
+                                  <View style={styles.cardtp}>
+                                      <Text style={styles.title}>
+                                      Reversible Trim
+                                      </Text>
+                                      <Text style={styles.price}>
+                                      $ 24.43
+                                      </Text>
+                                  </View>
+                                
+                                  <View style={styles.cardbt}>
+                                    <View style={styles.count}>
+                                      <View style={styles.countmin}><Text style={styles.countcommon}>-</Text></View>
+                                      <View  style={styles.countnu}><Text style={styles.countNo}>1</Text></View>
+                                      <View  style={styles.countmin}><Text style={styles.countcommon}>+</Text></View>
+                                    </View>                       
+                                  </View>
+                                </View>
+                          </View>                             
+                </View> 
+                
+          </View>
+          <View style={{height:calcH(0.30), width:'100%', top:calcH(0.04), paddingHorizontal:5}}>
+                            <Text style={styles.titleOrder}>Order information</Text>
+                                <View style={styles.total}>
+                                      <Text style={styles.titleleft}>Shipping Addresss :</Text>
+                                      <Text style={[styles.titleright, styles.rightplacment]}>3 Newbridge Court ,Chino Hills, CA 91709, United States</Text>
+                              </View>
+                              <View style={styles.totalVisa}>
+                                      <Text style={styles.titleleft}>Payment Method :</Text>
+                                      
+                                      <Text style={[styles.titleright, styles.imgposition ]}>
+                                      <Image style={styles.cardImg} source={require('../assets/images/card.png')} />          **** **** **** 3947</Text> 
+                              </View>  
+                            
+                              <View style={styles.totalAmount}>
+                                      <Text style={styles.titleleft}>Total Amount : </Text>
+                                      <Text style={styles.titleright}>$ 101 .79</Text>
+                              </View>                             
+          </View>    
+    </ScrollView>    
     </View> 
   );
 }
@@ -137,7 +137,8 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 25,
     lineHeight: 60,
-    fontWeight: "bold",
+    fontFamily: 'Roboto-Bold',
+    fontWeight: '700',
     textAlign: "center",
     backgroundColor: "#1E2429c0"
   },
@@ -150,7 +151,10 @@ const styles = StyleSheet.create({
     backgroundColor: "#1E2429c0"
   },
   ftcolor:{
-    color:'#9b9b9b'
+    color:'#FFFFFF',
+    fontSize: 16,
+    fontWeight: '400',
+    fontFamily: 'Roboto-Regular',
   },
   incolor:{
     color:colors.white,
@@ -172,6 +176,7 @@ const styles = StyleSheet.create({
     width:'80%'
   },
   inputde:{
+    height:calcH(0.19),
     borderRadius:5,
     padding:10,
     paddingBottom:0,
@@ -187,7 +192,7 @@ inputdetow:{
     borderWidth:1,
     marginBottom: 8,
     color:colors.white,
-    height:124,
+    height:calcH(0.18),
     flexDirection:'row'
 },
 cardtp:{
@@ -199,7 +204,9 @@ cardtp:{
 },
 markorderdeliver:{
     color: "#30CC52",
-    fontSize: 16
+    fontSize: 16,
+    fontWeight:'400',
+    fontFamily: 'Roboto-Regular',
 },
 srollsection: {
    height:'65%',
@@ -223,10 +230,14 @@ srollsection: {
   title:{
     fontSize:18,
     color:colors.white,
+    fontFamily:'Roboto-Medium',
+    fontWeight: '500'
   },
   price:{
-    fontSize:16,
+    fontSize:18,
     color:colors.white,
+    fontFamily:'Roboto-Medium',
+    fontWeight: '500'
   },
   cardbt:{     
     width:'100%',
@@ -265,22 +276,41 @@ srollsection: {
   },
   titleOrder:{
       fontSize:16, 
-      color:colors.white
+      color:colors.white,
+      fontWeight: '500',
+      fontFamily:'Roboto-Medium',
   },
   total:{
       flexDirection:"row",
       alignItems:'center',
       marginBottom:6
   },
+  totalVisa: {
+    flexDirection:"row",
+    alignItems:'center',
+    top:10
+  },
+  totalAmount :{
+    flexDirection:"row",
+    alignItems:'center',
+    top:10
+  },
   titleleft: {
-    width:150,
+    color:'#9B9B9B',
+    width: '40%',
     fontSize:15,
-    color:colors.white
+    fontWeight: '500',
+    fontFamily:'Roboto-Medium',
   },
   titleright: {
-    width:screenWidth - 190,
+    width: '60%',
     fontSize:16,
-    color:colors.white
+    fontWeight: '400',
+    fontFamily: 'Roboto-Regular',
+    color:colors.white,
+  },
+  rightplacment: {  
+    top:calcH(0.03),
   },
   cardImg :{
      width: 30,

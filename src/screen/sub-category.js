@@ -104,11 +104,7 @@ export default SubCategory = ({route, navigation }) =>  {
                       </View>
             </TouchableOpacity>
         </View>
-        <ScrollView > 
-          
-          
-          
-         
+        <ScrollView >         
         <View style={{width:'100%', paddingLeft:10}}>
           <Text style={{textAlign:'left', color:'#9B9B9B', fontSize:18, paddingTop:10 }}>
             Choose category
